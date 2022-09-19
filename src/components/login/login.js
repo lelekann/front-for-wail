@@ -25,9 +25,7 @@ export const LoginForm = (props) => {
             }).then(({data}) => {
                 if(!error) {
                     localStorage.setItem('authToken', JSON.stringify(data.login.access_token));
-                    if(data.login.user.role === "admin") {
-                        props.setIsAdmin(true);
-                    }
+                    data.login.user.role === "admin" ? props.setIsAdmin(true) : props.setIsAdmin(false);                    
                     navigate('/users', {replace: true});
                 }
             }) 
