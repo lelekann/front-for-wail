@@ -1,9 +1,14 @@
 import { useQuery } from "@apollo/client";
 import { GET_ALL_USERS } from "../../api/api";
+import '../../App.css';
+import { UserItem } from "./userItem";
 
-export const Users = () => {
-    const {loading, error, data} = useQuery(GET_ALL_USERS);
-    console.log(data, error)
+export const Users = (props) => {
+    const {loading, error, data} = useQuery(GET_ALL_USERS, {
+        variables: {
+            isAdmin: props.isAdmin
+        }
+    });
 
     if(loading) {
         return <p>Loading ...</p>
@@ -15,7 +20,7 @@ export const Users = () => {
 
     return (
         <ul>
-            {data.getAllUsers.map(user => <li>{user.username}</li>)}
+            {data.getAllUsers.map(user => <UserItem key={user.id} user={user} />)}
         </ul>
     )
 }

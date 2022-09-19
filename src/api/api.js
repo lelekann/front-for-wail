@@ -19,11 +19,19 @@ mutation login($input: LoginUserInput!) {
     }
 }`;
 
+export const CREATE_USER = gql`
+mutation signup($input: LoginUserInput!) {
+    signup(loginUserInput: $input) {
+        username
+    }
+}
+`;
+
 export const GET_ALL_USERS = gql`
-query AllUsers {
+query AllUsers($isAdmin: Boolean!) {
     getAllUsers {
       username
-      id
-      role
+      id @include(if: $isAdmin)
+      role @include(if: $isAdmin)
     }
 }`;

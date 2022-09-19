@@ -61,3 +61,41 @@ button:hover {
 .error {
   color: #c22a2a;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  border-bottom: 1px solid #043441;
+  margin-bottom: 5px;
+}
+
+.menu {
+  background-color: #044355;
+  display:  flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.menu {
+  width: 100%;
+  display:  flex;
+  justify-content: flex-end;
+}
+
+.menu button {
+  width: 100px;
+  margin:  0 10px 0 0 ;
+}
+
+button a {
+  text-decoration: none;
+  color: #043441;
+}
+
+button a:hover {
+  color: #fff;
+}
